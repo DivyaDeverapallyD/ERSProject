@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../CSS/stylesheet.css"> 
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<meta charset="ISO-8859-1">
+<title>Submit New Ticket</title>
+<link rel="stylesheet" href="../CSS/stylesheet.css">
+<style>
+
+fieldset {
+ background-color: #f2fafc;
+  border-radius: 15px 15px;
+ text-align:center;
+ padding:10px;
+  width:800px;
+  line-height:1.8;
+  margin:auto;
+  border: 10px solid black;
+}
+
+legend {
+  background-color: gray;
+  text-align: center;
+  color: white;
+  padding: 5px 10px;
+}
+
+input {
+  margin: 5px;
+}
+
+h4{
+ color: Black;
+}
+
+
+</style>
+
+
+</head>
+<body>
+
+
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-primary p-4">
+  <span>
+  
+  
+  </span>
+  <a href="home.html" target= "_parent" style="display:inline-block"><h4>Home</h4></a>&nbsp;&nbsp;
+  <a href="pastTickets.html" style="display:inline-block"><h4> View Past Tickets</h4></a> &nbsp;
+  <a href="http://localhost:8081/ERS/logout" style="display:inline-block"><h4>Logout</h4></a> 
+   
+  </div>
+ <!--  <p id ="name" style="text-align:right">Hello</p></a> -->
+</div>
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span><span></span>
+     
+    </button>
+    <span> 
+    <h4 id ="name" style="text-align:right">Hello</h4>
+     </span>
+     
+  </div>
+   
+
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="home.html" >Home</a>
+  
+  <a href="pastTickets.html">View Past Tickets</a>
+  <a href="http://localhost:8081/ERS/logout">Logout</a> 
+</div> -->
+
+<div id="main">
+
+
+	<div class="loginPage">
+
+		<!-- Custom styles for this template -->
+		<!-- onsubmit="window.location.reload()" -->
+		<form  id ="formid" style="text-align: center" >
+		<h4 id="successReimb"  style="color: Green"></h4>
+		<fieldset>
+		<label style="text-shadow: 2px 2px blue"><h3>New Reimbursement</h3></label>
+					<br> <br>
+			<label for="reimb_amount" class="sr-only"><strong>Reimbursement Amount :</strong></label>
+			<input type ="text" id="reimb_amount" class="form-control"placeholder="Enter Amount" required autofocus> <br> <br><br>
+			<label for="reimb_desc" class="sr-only"><b>Reimbursement Description : </b></label> 
+			<textarea class="form-control" id="reimb_desc" rows="3" placeholder="Reimbursement Description (250 characters)" required autofocus></textarea>
+<br> <br> 
+			<label for="reimb_type"  class="sr-only"><b>Reimbursement Type : </b></label>
+			<select name="reimb_type" id ="reimb_type">
+			<option value="1">Lodging</option>
+			<option value="2">Travel</option>
+			<option value="3">Food</option>
+			<option value="4">Other</option>
+		</select><!-- br -->
+		
+		<br> <br> <br>
+		<input type="file"  name="file"  value="Attach"  id="upload" name="upload" accept=".jpg,.png,.bmp"  onchange="validate_fileupload(this);" required autofocus/>
+			<br> <br>
+			<button type="button" id="submit" class="btn btn-primary">Submit</button> 
+			</fieldset>
+			
+
+		</form>
+		<!-- <p class="mt-5 mb-3 text-muted">&copy; Reimbursement System</p> -->
+</div>
+
+
+	</div>
+	
+<script>
+	
+	var valid = false;
+
+	function validate_fileupload(input_element)
+	{
+	    var el = document.getElementById("feedback");
+	    var submit = document.getElementById("submit");
+	    var fileName = input_element.value;
+	    var allowed_extensions = new Array("jpg","png","gif","JPG");
+	    var file_extension = fileName.split('.').pop(); 
+	    for(var i = 0; i < allowed_extensions.length; i++)
+	    {
+	        if(allowed_extensions[i]==file_extension)
+	        {
+	            valid = true; // valid file extension
+	            el.innerHTML = "";
+	            submit.disabled = false;
+
+	            return;
+	           
+	        }
+	    }
+	    el.innerHTML="Invalid file";
+	    valid = false;
+	}
+
+	function valid_form()
+	{
+	    return valid;
+	}</script>
+	
+<script src="../JS/newreimbs.js" type="text/javascript"></script>
+</body>
+</html>
