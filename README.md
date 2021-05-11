@@ -24,7 +24,7 @@ Technologies Used:
 •	Java 1.8
 •	Maven
 •	JDBC
-•	SQL
+•	PostGreSQL
 •	Servlet
 •	HTML/JS/CSS
 •	JavaScript,Ajax
