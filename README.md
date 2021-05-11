@@ -19,8 +19,6 @@
 •	A Manager can have access the approve and deny the reimbursements.
 
  
-
-
 Technologies Used:
 ****
 •	Java 1.8
